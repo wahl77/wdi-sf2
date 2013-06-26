@@ -1,3 +1,14 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.day_break{
+  border-top: 2px solid #999;
+}
+
+.odd_day + .even_day td{
+  @extend .day_break;
+}
+.even_day + .odd_day td{
+  @extend .day_break;
+}
+
+.student{
+  font-weight: bold;
+}

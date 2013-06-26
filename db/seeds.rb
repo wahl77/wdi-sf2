@@ -1,19 +1,19 @@
 students = %w(
+  Franky
+  Isaac
+  Elizabeth
   Neil
   Zara
   YKat
   Eric
-  Elizabeth
-  Claire
-  Tom
-  Christina
-  Isaac
   Alex
+  Claire
+  Adam
+  Tom
   Amy
   Baylee
-  Franky
+  Christina
   Patsy
-  Adam
   Jason
   Gabe
   Harrison
@@ -30,7 +30,7 @@ puts "Added #{Instructor.count} instructors."
 puts "------------------------------------------------------------------------"
 
 def four_students?(day)
-  [2, 3, 4].include?(day)
+  [3, 4, 5].include?(day)
 end
 
 def per_day(day)
@@ -39,7 +39,7 @@ end
 
 weeks = [5, 6, 7, 8, 9, 10, 11]
 days = [1, 2, 3, 4, 5]
-offsets = {1 => 0, 2 => 3, 3 => 7, 4 => 11, 5 => 14}
+offsets = {1 => 0, 2 => 3, 3 => 6, 4 => 10, 5 => 14}
 instructors = Instructor.scoped
 
 weeks.each_with_index do |week, i|

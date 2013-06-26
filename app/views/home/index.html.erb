@@ -1,21 +1,35 @@
-<h1>1:1 Schedule</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>1:1 Schedule</h1>
 
-<% @weeks.each do |week| %>
-  <div class="week">
-    <h2><%= "Week #{week}" %></h2>
+    <div class="row">
+      <% @weeks.each do |week| %>
+        <div class="week large-4 columns">
+          <h2><%= "Week #{week}" %></h2>
 
-    <table>
-      <tbody>
-        <% @days.each do |day| %>
-          <% @meetings.where("week = ? AND day = ?", week, day).each do |meeting| %>
-            <tr class="<%= day.even? ? 'even' : 'odd' %>">
-              <td class="day"><%= meeting.day_name %></td>
-              <td class="student"><%= meeting.student.name %></td>
-              <td class="instructor"><%= meeting.instructor.name %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
+          <table cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Student</th>
+                <th>Instructor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @days.each do |day| %>
+                <% @meetings.where("week = ? AND day = ?", week, day).each do |meeting| %>
+                  <tr class="<%= day.even? ? 'even_day' : 'odd_day' %>">
+                    <td class="day"><%= meeting.day_name %></td>
+                    <td class="student"><%= meeting.student.name %></td>
+                    <td class="instructor"><%= meeting.instructor.name %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
+
   </div>
-<% end %>
+</div>
