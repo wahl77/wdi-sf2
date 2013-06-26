@@ -53,7 +53,7 @@ weeks.each_with_index do |week, i|
 
     students_with_meetings.each do |student|
       instructor = instructors.rotate![0]
-      student.meetings.create(instructor_id: instructor, week: week, day: day)
+      student.meetings.create(instructor_id: instructor.id, week: week, day: day)
       puts "1:1 set for Week #{week}, Day #{day} - #{instructor.name} & #{student.name}"
     end
 

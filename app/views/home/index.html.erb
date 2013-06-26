@@ -1,0 +1,21 @@
+<h1>1:1 Schedule</h1>
+
+<% @weeks.each do |week| %>
+  <div class="week">
+    <h2><%= "Week #{week}" %></h2>
+
+    <table>
+      <tbody>
+        <% @days.each do |day| %>
+          <% @meetings.where("week = ? AND day = ?", week, day).each do |meeting| %>
+            <tr class="<%= day.even? ? 'even' : 'odd' %>">
+              <td class="day"><%= meeting.day_name %></td>
+              <td class="student"><%= meeting.student.name %></td>
+              <td class="instructor"><%= meeting.instructor.name %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
