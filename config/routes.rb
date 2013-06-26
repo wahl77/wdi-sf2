@@ -1,4 +1,5 @@
 OneOnOne::Application.routes.draw do
+  match "/(:student)" => 'home#index'
   root :to => "home#index"
 
   # The priority is based upon order of creation:
