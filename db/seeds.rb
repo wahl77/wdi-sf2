@@ -40,10 +40,11 @@ end
 weeks = [5, 6, 7, 8, 9, 10, 11]
 days = [1, 2, 3, 4, 5]
 offsets = {1 => 0, 2 => 3, 3 => 6, 4 => 10, 5 => 14}
-instructors = Instructor.scoped
 
 weeks.each_with_index do |week, i|
   puts "Starting Week #{week}"
+
+  instructors = Instructor.all.rotate(i)
 
   days.each do |day|
     puts "Day #{day}:"
