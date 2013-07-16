@@ -8,4 +8,10 @@ class Meeting < ActiveRecord::Base
     names[day-1]
   end
 
+  def self.all_meetings
+    Rails.cache.fetch("meetingsdfadsfa") do 
+      Meeting.joins(:student, :instructor).select("meetings.*, students.name as student_name, instructors.name as instructor_name, students.id as student_id").all
+    end
+  end
+
 end
