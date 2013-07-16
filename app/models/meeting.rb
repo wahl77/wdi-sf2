@@ -7,4 +7,5 @@ class Meeting < ActiveRecord::Base
     names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     names[day-1]
   end
+
 end
